@@ -1,5 +1,11 @@
-const CompanyForm = () => {
-  return <h1>hola</h1>;
-};
+import FormCompany from "../components/FormCompany/FormCompany";
 
+
+const CompanyForm = () => {
+  return (
+    
+      <FormCompany/>
+    );
+}
+ 
 export default CompanyForm;
