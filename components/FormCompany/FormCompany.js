@@ -1,7 +1,7 @@
 import { Layout } from "../Layout/Layout";
 import { useEffect, useState } from "react";
 import Router from "next/router";
-import axios from 'axios'
+import axios from "axios";
 import {
   Title,
   ButtonSave,
@@ -48,12 +48,10 @@ const FormCompany = () => {
     //.then(res => {
       console.log(res);
       console.log(res.data)
-    })*/ 
+    })*/
 
     Router.push("/allcompanies");
   };
-
-  
 
   return (
     <Layout>
@@ -96,9 +94,7 @@ const FormCompany = () => {
               onChange={handleChange}
             />
           </Camp>
-          <ButtonSave type="submit" variant="contained">
-            Save Company
-          </ButtonSave>
+          <ButtonSave type="submit">Save Company</ButtonSave>
           {error ? <p> Rellena todos los campos</p> : null}
         </Form>
       </WrapperForm>

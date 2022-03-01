@@ -11,7 +11,7 @@ import { Layout } from "../../components/Layout/Layout";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import Link from "next/link";
-import axios from 'axios'
+import axios from "axios";
 
 const AllCompanies = () => {
   const gridRef = useRef(null);
@@ -186,7 +186,7 @@ const AllCompanies = () => {
           </div>
         </TableContainer>
         <ButtonContainer>
-          <ButtonCompany variant="contained">
+          <ButtonCompany>
             <Link href="/company-form">
               <a>
                 <li>Add Company</li>
@@ -200,10 +200,8 @@ const AllCompanies = () => {
               </a>
             </Link>
           </ButtonCompany>
-          <ButtonCompany variant="contained">Fetch Companies</ButtonCompany>
-          <ButtonCompany variant="contained" onClick={onButtonClick}>
-            Delete Company
-          </ButtonCompany>
+          <ButtonCompany>Fetch Companies</ButtonCompany>
+          <ButtonCompany onClick={onButtonClick}>Delete Company</ButtonCompany>
         </ButtonContainer>
       </AllCompaniesContainer>
     </Layout>
