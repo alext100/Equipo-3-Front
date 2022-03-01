@@ -9,6 +9,7 @@ const Header = () => {
       <Image src={LogoHeader} alt='mwc'/>
       
         <Nav>
+         <Link href='/'><a><li>Home</li></a></Link>
           <Link href='/company-form'><a><li>Add Companies</li></a></Link>
           <Link href='/flight-form'><a><li>Add Flights</li></a></Link>
           <li>All Companies</li>
