@@ -35,6 +35,11 @@ const Header = () => {
             <li>Data</li>
           </a>
         </Link>
+        <Link href="/graficas2">
+          <a>
+            <li>Graphics</li>
+          </a>
+        </Link>
       </Nav>
     </HeaderContainer>
   );
