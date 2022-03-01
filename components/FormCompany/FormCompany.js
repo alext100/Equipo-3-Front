@@ -30,7 +30,7 @@ const FormCompany = () => {
     });
   };
   const sendObject = async () => {
-    axios.post("https//nuwe-mwc-22.herokuapp.com/companies", company);
+    await axios.post("https://nuwe-mwc-22.herokuapp.com/companies", company);
   };
   const onSubmitForm = (e) => {
     e.preventDefault();
