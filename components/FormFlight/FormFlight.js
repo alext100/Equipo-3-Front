@@ -14,13 +14,13 @@ import Router from "next/router";
 import { countryList } from "../../services/paises";
 
 const initalState = {
-  CompanyID: "",
-  Data: "",
-  OriginCountry: "",
-  OriginContinent: "",
-  Seats: "",
-  DestinationCountry: "",
-  DestinationContinent: "",
+  company_id: "",
+  date: "",
+  origin_country: "",
+  origin_continent: "",
+  seats: "",
+  destination_country: "",
+  destination_continent: "",
 };
 
 const FormFlight = () => {
@@ -28,13 +28,13 @@ const FormFlight = () => {
   const [flight, setFlight] = useState(initalState);
 
   const {
-    CompanyID,
-    Data,
-    OriginCountry,
-    OriginContinent,
-    Seats,
-    DestinationCountry,
-    DestinationContinent,
+    company_id,
+    date,
+    origin_country,
+    origin_continent,
+    seats,
+    destination_country,
+    destination_continent,
   } = flight;
 
   const handleChange = (e) => {
@@ -49,19 +49,18 @@ const FormFlight = () => {
 
     //validación
     if (
-      CompanyID === "" ||
-      Data === "" ||
-      OriginCountry === "" ||
-      OriginContinent === "" ||
-      Seats === "" ||
-      DestinationCountry === "" ||
-      DestinationContinent === ""
+      company_id === "" ||
+      date === "" ||
+      origin_country === "" ||
+      origin_continent === "" ||
+      seats === "" ||
+      destination_country === "" ||
+      destination_continent === ""
     ) {
       setError(true);
       return;
     }
-
-    setError(false);
+    Router.push / setError(false);
     /*axios.post('url' , flight)
     //.then(res => {
       console.log(res);
@@ -79,8 +78,8 @@ const FormFlight = () => {
             <Label>CompanyID</Label>
             <Input
               type="text"
-              name="CompanyID"
-              value={CompanyID}
+              name="company_id"
+              value={company_id}
               onChange={handleChange}
             />
           </Camp>
@@ -88,8 +87,8 @@ const FormFlight = () => {
             <Label>Data</Label>
             <Input
               type="text"
-              name="Data"
-              value={Data}
+              name="date"
+              value={date}
               onChange={handleChange}
             />
           </Camp>
@@ -97,11 +96,11 @@ const FormFlight = () => {
             <Label>Origin Country</Label>
             <Select
               onChange={handleChange}
-              name="OriginCountry"
-              value={OriginCountry}
+              name="origin_country"
+              value={origin_country}
             >
               {countryList.map((pais) => (
-                <option key={pais} name="OriginCountry">
+                <option key={pais} name="origin_country">
                   {pais}
                 </option>
               ))}
@@ -111,11 +110,11 @@ const FormFlight = () => {
             <Label>Destination Country</Label>
             <Select
               onChange={handleChange}
-              name="DestinationCountry"
-              value={DestinationCountry}
+              name="destination_country"
+              value={destination_country}
             >
               {countryList.map((pais) => (
-                <option key={pais} name="DestinationCountry">
+                <option key={pais} name="destination_country">
                   {pais}
                 </option>
               ))}
@@ -126,8 +125,8 @@ const FormFlight = () => {
             <Label>Origin Continent</Label>
             <Input
               type="text"
-              name="OriginContinent"
-              value={OriginContinent}
+              name="origin_continent"
+              value={origin_continent}
               onChange={handleChange}
             />
           </Camp>
@@ -135,17 +134,17 @@ const FormFlight = () => {
             <Label>Destination Continent</Label>
             <Input
               type="text"
-              name="DestinationContinent"
-              value={DestinationContinent}
+              name="destination_continent"
+              value={destination_continent}
               onChange={handleChange}
             />
           </Camp>
           <Camp>
             <Label>Seats</Label>
             <Input
-              name="Seats"
+              name="seats"
               type="text"
-              value={Seats}
+              value={seats}
               onChange={handleChange}
             />
           </Camp>
