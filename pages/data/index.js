@@ -13,7 +13,7 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import Link from "next/link";
 import axios from "axios";
 
-const AllCompanies = () => {
+const Data = () => {
   const gridRef = useRef(null);
 
   const checkboxSelection = (params) => {
@@ -77,7 +77,7 @@ const AllCompanies = () => {
   return (
     <Layout>
       <AllCompaniesContainer>
-        <Title>All Companies</Title>
+        <Title>Statistics</Title>
         <TableContainer>
           <div className="ag-theme-alpine" style={gridStyle}>
             <AgGridReact
@@ -93,29 +93,9 @@ const AllCompanies = () => {
             ></AgGridReact>
           </div>
         </TableContainer>
-        <ButtonContainer>
-          <ButtonCompany variant="contained">
-            <Link href="/company-form">
-              <a>
-                <li>Add Company</li>
-              </a>
-            </Link>
-          </ButtonCompany>
-          <ButtonCompany>
-            <Link href="/flight-form">
-              <a>
-                <li>Add Flight</li>
-              </a>
-            </Link>
-          </ButtonCompany>
-          <ButtonCompany variant="contained">Fetch Companies</ButtonCompany>
-          <ButtonCompany variant="contained" onClick={onButtonClick}>
-            Delete Company
-          </ButtonCompany>
-        </ButtonContainer>
       </AllCompaniesContainer>
     </Layout>
   );
 };
 
-export default AllCompanies;
+export default Data;
