@@ -7,6 +7,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <HeaderContainer>
+
       <Image src={LogoHeader} alt="mwc" />
 
       <Nav>
@@ -31,6 +32,7 @@ const Header = () => {
           </a>
         </Link>
       </Nav>
+
     </HeaderContainer>
   );
 };
