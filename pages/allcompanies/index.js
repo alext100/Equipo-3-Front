@@ -1,9 +1,16 @@
 import React, { useState, useRef, useMemo } from "react";
-import { TableContainer } from "./style";
+import {
+  ButtonCompany,
+  TableContainer,
+  ButtonContainer,
+  AllCompaniesContainer,
+  Title,
+} from "./style";
 import { AgGridReact } from "ag-grid-react";
-
+import { Layout } from "../../components/Layout/Layout";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import Link from "next/link";
 
 const AllCompanies = () => {
   const [rowData] = useState([
@@ -104,8 +111,19 @@ const AllCompanies = () => {
       "Total seats": 120,
     },
   ]);
+
+  /* 
+   const [rowData, setRowData] = useState();
+   useEffect(() => {
+    fetch("https://www.xxxxx")
+      .then((resp) => resp.json())
+      .then((data) => setRowData(data));
+  }, []); */
+
   const gridRef = useRef(null);
-  const gridStyle = useMemo(() => ({ height: "550px", width: "830px" }), []);
+  const gridStyle = useMemo(() => ({ height: "550px", width: "803px" }), []);
+  const suppressRowHoverHighlight = true;
+  const columnHoverHighlight = true;
   const pagination = true;
   const paginationPageSize = 10;
 
@@ -134,18 +152,42 @@ const AllCompanies = () => {
   ]);
 
   return (
-    <TableContainer>
-      <div className="ag-theme-alpine" style={gridStyle}>
-        <AgGridReact
-          ref={gridRef}
-          rowData={rowData}
-          columnDefs={columnDefs}
-          rowSelection="multiple"
-          pagination={pagination}
-          paginationPageSize={paginationPageSize}
-        ></AgGridReact>
-      </div>
-    </TableContainer>
+    <Layout>
+      <AllCompaniesContainer>
+        <Title>All Companies</Title>
+        <TableContainer>
+          <div className="ag-theme-alpine" style={gridStyle}>
+            <AgGridReact
+              ref={gridRef}
+              rowData={rowData}
+              columnDefs={columnDefs}
+              rowSelection="multiple"
+              pagination={pagination}
+              paginationPageSize={paginationPageSize}
+              suppressRowHoverHighlight={suppressRowHoverHighlight}
+              columnHoverHighlight={columnHoverHighlight}
+            ></AgGridReact>
+          </div>
+        </TableContainer>
+        <ButtonContainer>
+          <ButtonCompany variant="contained">
+            <Link href="/company-form">
+              <a>
+                <li>Add Company</li>
+              </a>
+            </Link>
+          </ButtonCompany>
+          <ButtonCompany variant="contained">
+            <Link href="/flight-form">
+              <a>
+                <li>Add Flight</li>
+              </a>
+            </Link>
+          </ButtonCompany>
+          <ButtonCompany variant="contained">Fetch Companies</ButtonCompany>
+        </ButtonContainer>
+      </AllCompaniesContainer>
+    </Layout>
   );
 };
 
