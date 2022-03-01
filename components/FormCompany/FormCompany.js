@@ -78,7 +78,7 @@ const FormCompany = () => {
           <Camp>
             <Label>Total flights</Label>
             <Input
-              type="text"
+              type="number"
               name="total_flights"
               value={total_flights}
               onChange={handleChange}
@@ -87,7 +87,7 @@ const FormCompany = () => {
           <Camp>
             <Label>Total seats</Label>
             <Input
-              type="text"
+              type="number"
               name="total_seats"
               value={total_seats}
               onChange={handleChange}

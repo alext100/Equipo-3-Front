@@ -24,9 +24,10 @@ const AllCompanies = () => {
     const selectedNodes = gridRef.current.api.getSelectedNodes();
     const selectedData = selectedNodes.map((node) => node.data);
     const selectedDataStringPresentation = selectedData
-      .map((node) => `${node.Company} ${node.Website}`)
+      .map((node) => `${node.id}`)
       .join(", ");
-    alert(`Selected nodes: ${selectedDataStringPresentation}`);
+    const id = selectedDataStringPresentation;
+    deleteCompany(id);
   };
 
   const [rowData, setRowData] = useState();
@@ -36,6 +37,17 @@ const AllCompanies = () => {
       setRowData(res.data);
     });
   };
+
+  const deleteCompany = async (id) => {
+    await axios.delete(`http://nuwe-mwc-22.herokuapp.com/companies/${id}`);
+    getApi();
+  };
+
+  const updated = (id) => {
+    rowData.filter((data) => data.id !== id);
+  };
+
+  console.log(updated);
 
   useEffect(() => {
     getApi();
