@@ -5,14 +5,14 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: baseline;
 
-  background-color: #c4c4c4;
-
+  background-color: #01cbd0;
+  height: 90px;
   width: 100%;
   padding: 10px;
 `;
 export const Nav = styled.ul`
   display: flex;
   justify-content: space-evenly;
-  width: 500px;
+  width: 600px;
   font-weight: bold;
 `;

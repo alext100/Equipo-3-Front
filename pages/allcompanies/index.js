@@ -13,6 +13,7 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import Link from "next/link";
 
 const AllCompanies = () => {
+  const gridRef = useRef(null);
   const [rowData] = useState([
     {
       Company: "EgyptAir",
@@ -112,6 +113,19 @@ const AllCompanies = () => {
     },
   ]);
 
+  const checkboxSelection = (params) => {
+    return params.node.group === true;
+  };
+
+  const onButtonClick = (e) => {
+    const selectedNodes = gridRef.current.api.getSelectedNodes();
+    const selectedData = selectedNodes.map((node) => node.data);
+    const selectedDataStringPresentation = selectedData
+      .map((node) => `${node.Company} ${node.Website}`)
+      .join(", ");
+    alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  };
+
   /* 
    const [rowData, setRowData] = useState();
    useEffect(() => {
@@ -120,7 +134,6 @@ const AllCompanies = () => {
       .then((data) => setRowData(data));
   }, []); */
 
-  const gridRef = useRef(null);
   const gridStyle = useMemo(() => ({ height: "550px", width: "803px" }), []);
   const suppressRowHoverHighlight = true;
   const columnHoverHighlight = true;
@@ -133,6 +146,7 @@ const AllCompanies = () => {
       sortable: true,
       filter: true,
       resizable: true,
+      checkboxSelection: true,
     },
     { field: "Website", sortable: true, filter: true, resizable: true },
     {
@@ -166,6 +180,7 @@ const AllCompanies = () => {
               paginationPageSize={paginationPageSize}
               suppressRowHoverHighlight={suppressRowHoverHighlight}
               columnHoverHighlight={columnHoverHighlight}
+              groupSelectsChildren={true}
             ></AgGridReact>
           </div>
         </TableContainer>
@@ -185,6 +200,9 @@ const AllCompanies = () => {
             </Link>
           </ButtonCompany>
           <ButtonCompany variant="contained">Fetch Companies</ButtonCompany>
+          <ButtonCompany variant="contained" onClick={onButtonClick}>
+            Delete Company
+          </ButtonCompany>
         </ButtonContainer>
       </AllCompaniesContainer>
     </Layout>

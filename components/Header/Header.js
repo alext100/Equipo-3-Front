@@ -1,16 +1,20 @@
 import { HeaderContainer, Nav } from "./style";
 import Image from "next/image";
-import LogoHeader from "../../public/img/mwclogo.png";
+import LogoHeader from "../../public/img/mwclogo-sm.png";
 
 import Link from "next/link";
 
 const Header = () => {
   return (
     <HeaderContainer>
-
       <Image src={LogoHeader} alt="mwc" />
 
       <Nav>
+        <Link href="/">
+          <a>
+            <li>Home</li>
+          </a>
+        </Link>
         <Link href="/company-form">
           <a>
             <li>Add Companies</li>
@@ -32,7 +36,6 @@ const Header = () => {
           </a>
         </Link>
       </Nav>
-
     </HeaderContainer>
   );
 };

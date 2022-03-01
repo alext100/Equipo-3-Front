@@ -12,7 +12,7 @@ export const ButtonCompany = styled(Button)`
   border-radius: 16px;
   position: ${(props) => (props.absolute ? "absolute" : "null")};
   bottom: 0;
-  left: 20px;
+  /* left: 20px; */
   margin: 15px 20px;
 `;
 
@@ -27,6 +27,7 @@ export const AllCompaniesContainer = styled.section`
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
 export const Title = styled.h2`
