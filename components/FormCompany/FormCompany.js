@@ -48,7 +48,7 @@ const FormCompany = () => {
   return (
     <Layout>
       <WrapperForm>
-        <Form onSubmit={onSubmitForm}>
+        <Form column onSubmit={onSubmitForm}>
           <Title>Add Company</Title>
           <Camp>
             <Label>Name</Label>
