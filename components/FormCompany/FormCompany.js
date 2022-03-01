@@ -1,13 +1,32 @@
-
+import { Layout } from "../Layout/Layout";
+import { Title,ButtonSave,Label,WrapperForm, Form, Camp, Input } from "./style";
 
 const FormCompany = () => {
   return (
-    <form>
-      <div>
-        <label>label</label>
-        <input type="text" />
-      </div>
-    </form>
+    <Layout>
+      <WrapperForm>
+    <Form column>
+      <Title>Add Company</Title>
+      <Camp>
+        <Label>label</Label>
+        <Input type="text" />
+      </Camp>
+      <Camp>
+        <Label>label</Label>
+        <Input type="text" />
+      </Camp>
+      <Camp>
+        <Label>label</Label>
+        <Input type="text" />
+      </Camp>
+      <Camp>
+        <Label>label</Label>
+        <Input type="text" />
+      </Camp>
+      <ButtonSave variant='contained'>Save Company</ButtonSave>
+    </Form>
+    </WrapperForm>
+    </Layout>
   );
 };
 

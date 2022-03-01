@@ -10,7 +10,7 @@ const Header = () => {
       
         <Nav>
           <Link href='/company-form'><a><li>Add Companies</li></a></Link>
-          <li>Add Flights</li>
+          <Link href='/flight-form'><a><li>Add Flights</li></a></Link>
           <li>All Companies</li>
           <li>Data</li>
         </Nav>
