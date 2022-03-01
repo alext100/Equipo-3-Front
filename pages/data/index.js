@@ -32,7 +32,7 @@ const Data = () => {
   const [rowData, setRowData] = useState();
 
   const getApi = () => {
-    axios.get("https://nuwe-mwc-22.herokuapp.com/companies/").then((res) => {
+    axios.get("https://nuwe-mwc-22.herokuapp.com/SeatsFlight").then((res) => {
       setRowData(res.data);
     });
   };
@@ -41,36 +41,42 @@ const Data = () => {
     getApi();
   }, []);
 
-  const gridStyle = useMemo(() => ({ height: "550px", width: "803px" }), []);
+  const gridStyle = useMemo(() => ({ height: "730px", width: "900px" }), []);
   const suppressRowHoverHighlight = true;
   const columnHoverHighlight = true;
   const pagination = true;
-  const paginationPageSize = 10;
+  const paginationPageSize = 15;
 
   const [columnDefs] = useState([
     {
-      field: "name",
+      field: "Origin_Country",
+      headerName: "Origin Country",
       sortable: true,
       filter: true,
       resizable: true,
       checkboxSelection: true,
     },
-    { field: "website", sortable: true, filter: true, resizable: true },
     {
-      field: "total_flights",
-      headerName: "Total Flights",
+      field: "Destination_Country",
+      headerName: "Destination Country",
       sortable: true,
       filter: true,
       resizable: true,
-      editable: true,
     },
     {
-      field: "total_seats",
-      headerName: "Total Seats",
+      field: "Seats_per_flight",
+      headerName: "Seats per flight",
       sortable: true,
       filter: true,
       resizable: true,
-      editable: true,
+    },
+    {
+      field: "travel",
+      headerName: "Travel",
+      minWidth: 295,
+      sortable: true,
+      filter: true,
+      resizable: true,
     },
   ]);
 
