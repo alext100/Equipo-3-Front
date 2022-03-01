@@ -1,6 +1,7 @@
 import { Layout } from "../Layout/Layout";
 import { WrapperForm, Form, Camp, Label, Input,Title, ButtonSave } from "../FormCompany/style";
 import { useState } from "react";
+import Router from 'next/router';
 
 
 const initalState = {
@@ -42,7 +43,8 @@ const FormFlight = () => {
         return;
       }
 
-      console.log(flight)
+      setError(false)
+      Router.push('/allcompanies')
      
   }
 
