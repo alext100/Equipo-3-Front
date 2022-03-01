@@ -15,40 +15,39 @@ import {
 const FormCompany = () => {
   const [error, setError] = useState(false);
   const [company, setCompany] = useState({
-    Name: "",
-    Website: "",
-    TotalFlights: "",
-    TotalSeats: "",
+    name: "",
+    website: "",
+    total_flights: "",
+    total_seats: "",
   });
 
-  const { Name, Website, TotalFlights, TotalSeats } = company;
+  const { name, website, total_flights, total_seats } = company;
+
   const handleChange = (e) => {
     setCompany({
       ...company,
       [e.target.name]: e.target.value,
     });
   };
-
+  const sendObject = async () => {
+    axios.post("https//nuwe-mwc-22.herokuapp.com/companies", company);
+  };
   const onSubmitForm = (e) => {
     e.preventDefault();
 
     //validacion
     if (
-      Name === "" ||
-      Website === "" ||
-      TotalFlights === "" ||
-      TotalSeats === ""
+      name === "" ||
+      website === "" ||
+      total_flights === "" ||
+      total_seats === ""
     ) {
       setError(true);
       return;
     }
     setError(false);
 
-    /*axios.post('url' , company)
-    //.then(res => {
-      console.log(res);
-      console.log(res.data)
-    })*/
+    sendObject();
 
     Router.push("/allcompanies");
   };
@@ -62,8 +61,8 @@ const FormCompany = () => {
             <Label>Name</Label>
             <Input
               type="text"
-              name="Name"
-              value={Name}
+              name="name"
+              value={name}
               onChange={handleChange}
             />
           </Camp>
@@ -71,8 +70,8 @@ const FormCompany = () => {
             <Label>Website</Label>
             <Input
               type="text"
-              name="Website"
-              value={Website}
+              name="website"
+              value={website}
               onChange={handleChange}
             />
           </Camp>
@@ -80,8 +79,8 @@ const FormCompany = () => {
             <Label>Total flights</Label>
             <Input
               type="text"
-              name="TotalFlights"
-              value={TotalFlights}
+              name="total_flights"
+              value={total_flights}
               onChange={handleChange}
             />
           </Camp>
@@ -89,8 +88,8 @@ const FormCompany = () => {
             <Label>Total seats</Label>
             <Input
               type="text"
-              name="TotalSeats"
-              value={TotalSeats}
+              name="total_seats"
+              value={total_seats}
               onChange={handleChange}
             />
           </Camp>
