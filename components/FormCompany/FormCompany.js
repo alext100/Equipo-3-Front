@@ -1,6 +1,7 @@
 import { Layout } from "../Layout/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Router from "next/router";
+import axios from 'axios'
 import {
   Title,
   ButtonSave,
@@ -42,13 +43,22 @@ const FormCompany = () => {
       return;
     }
     setError(false);
+
+    /*axios.post('url' , company)
+    //.then(res => {
+      console.log(res);
+      console.log(res.data)
+    })*/ 
+
     Router.push("/allcompanies");
   };
+
+  
 
   return (
     <Layout>
       <WrapperForm>
-        <Form onSubmit={onSubmitForm}>
+        <Form column onSubmit={onSubmitForm}>
           <Title>Add Company</Title>
           <Camp>
             <Label>Name</Label>

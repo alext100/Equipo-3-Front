@@ -38,6 +38,16 @@ export const Input = styled.input`
   
 `
 
+export const Select = styled.select`
+width: 300px;
+  border-radius: 16px;
+  outline: none;
+  border: solid 1px grey ;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: 300;
+`
+
 export const Label= styled.label`
   font-weight: bold;
 `

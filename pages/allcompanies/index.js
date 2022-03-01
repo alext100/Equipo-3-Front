@@ -11,6 +11,7 @@ import { Layout } from "../../components/Layout/Layout";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import Link from "next/link";
+import axios from 'axios'
 
 const AllCompanies = () => {
   const [rowData] = useState([
@@ -115,7 +116,7 @@ const AllCompanies = () => {
   /* 
    const [rowData, setRowData] = useState();
    useEffect(() => {
-    fetch("https://www.xxxxx")
+    axios.get("https://www.xxxxx")
       .then((resp) => resp.json())
       .then((data) => setRowData(data));
   }, []); */

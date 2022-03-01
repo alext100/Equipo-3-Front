@@ -1,7 +1,8 @@
 import { Layout } from "../Layout/Layout";
-import { WrapperForm, Form, Camp, Label, Input,Title, ButtonSave } from "../FormCompany/style";
+import { Select,WrapperForm, Form, Camp, Label, Input,Title, ButtonSave } from "../FormCompany/style";
 import { useState } from "react";
 import Router from 'next/router';
+import { countryList } from "../../services/paises";
 
 
 const initalState = {
@@ -44,6 +45,11 @@ const FormFlight = () => {
       }
 
       setError(false)
+      /*axios.post('url' , flight)
+    //.then(res => {
+      console.log(res);
+      console.log(res.data)
+    })*/ 
       Router.push('/allcompanies')
      
   }
@@ -78,37 +84,31 @@ const FormFlight = () => {
           </Camp>
           <Camp>
             <Label>Origin Country</Label>
-            <Input
-             type="text"
-             name= 'OriginCountry'
-             value={OriginCountry}
-             onChange={handleChange}
-              />
+            <Select onChange={handleChange} name='OriginCountry' value={OriginCountry}>
+            {countryList.map(pais => (
+              
+                <option key={pais} name='OriginCountry'>{pais}</option>
+              
+            ))}
+            </Select>
+            </Camp>
+            <Camp>
+            <Label>Destination Country</Label>
+            <Select onChange={handleChange} name='DestinationCountry' value={DestinationCountry}>
+            {countryList.map(pais => (
+              
+                <option key={pais} name='DestinationCountry'>{pais}</option>
+              
+            ))}
+            </Select>
           </Camp>
+         
           <Camp>
             <Label>Origin Continent</Label>
             <Input 
             type="text"
             name = 'OriginContinent'
             value={OriginContinent}
-            onChange={handleChange}
-            />
-          </Camp>
-          <Camp>
-            <Label>Seats</Label>
-            <Input 
-            name = 'Seats'
-            type="text"
-            value={Seats}
-            onChange={handleChange}
-             />
-          </Camp>
-          <Camp>
-            <Label>Destination Country</Label>
-            <Input 
-            type="text"
-            name= 'DestinationCountry'
-            value={DestinationCountry}
             onChange={handleChange}
             />
           </Camp>
@@ -121,6 +121,16 @@ const FormFlight = () => {
             onChange={handleChange}
             />
           </Camp>
+          <Camp>
+            <Label>Seats</Label>
+            <Input 
+            name = 'Seats'
+            type="text"
+            value={Seats}
+            onChange={handleChange}
+             />
+          </Camp>
+          
           
           <ButtonSave type="submit" absolute variant="contained">Save Flight</ButtonSave>
           {error ?  <p>Rellena todos los campos</p> : null}  
