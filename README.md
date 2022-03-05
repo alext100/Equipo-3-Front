@@ -1,6 +1,6 @@
 ## Hackathon 4YFN - MWC Barcelona 2022
 
-## Deploy: https://equipo-3-front.vercel.app/
+- Deploy: https://mwc22-equipo3.vercel.app/
 
 ### ✈️ Contexto
 
