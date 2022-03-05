@@ -1,32 +1,37 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
-import {
-  ButtonCompany,
-  TableContainer,
-  ButtonContainer,
-  AllCompaniesContainer,
-  Title,
-} from "./style";
 import { AgGridReact } from "ag-grid-react";
 import { Layout } from "../../components/Layout/Layout";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import Link from "next/link";
 import axios from "axios";
+import styled from "@emotion/styled";
+
+const TableContainer = styled.section`
+  display: flex;
+  margin: 20px 0 30px 0;
+  justify-content: space-around;
+  font-family: "Times New Roman";
+`;
+
+const AllCompaniesContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+const Title = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+  position: ${(props) => (props.absolute ? "absolute" : "null")};
+  top: -60px;
+`;
 
 const Data = () => {
   const gridRef = useRef(null);
 
   const checkboxSelection = (params) => {
     return params.node.group === true;
-  };
-
-  const onButtonClick = (e) => {
-    const selectedNodes = gridRef.current.api.getSelectedNodes();
-    const selectedData = selectedNodes.map((node) => node.data);
-    const selectedDataStringPresentation = selectedData
-      .map((node) => `${node.Company} ${node.Website}`)
-      .join(", ");
-    alert(`Selected nodes: ${selectedDataStringPresentation}`);
   };
 
   const [rowData, setRowData] = useState();
