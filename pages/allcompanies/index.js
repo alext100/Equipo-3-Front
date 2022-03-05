@@ -1,17 +1,50 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
-import {
-  ButtonCompany,
-  TableContainer,
-  ButtonContainer,
-  AllCompaniesContainer,
-  Title,
-} from "./style";
 import { AgGridReact } from "ag-grid-react";
 import { Layout } from "../../components/Layout/Layout";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import Link from "next/link";
 import axios from "axios";
+import styled from "@emotion/styled";
+import { Button } from "@mui/material";
+
+const TableContainer = styled.section`
+  display: flex;
+  margin: 20px 0 30px 0;
+  justify-content: space-around;
+  font-family: "Times New Roman";
+`;
+
+const ButtonCompany = styled(Button)`
+  color: black;
+  background-color: #01cbd0;
+  border-radius: 16px;
+  position: ${(props) => (props.absolute ? "absolute" : "null")};
+  bottom: 0;
+  /* left: 20px; */
+  margin: 15px 20px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+`;
+
+const AllCompaniesContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+  position: ${(props) => (props.absolute ? "absolute" : "null")};
+  top: -60px;
+`;
 
 const AllCompanies = () => {
   const gridRef = useRef(null);
